@@ -1,137 +1,119 @@
 package com.company.gaia.Entities;
 
+
+import java.util.UUID;
+
 public class User {
-    
-    private long id;
 
-    public String userName;
-
-
-    public String email;
-
-    public String password;
-
-    public String userInfo;
-
-    public double originalIndex;
-
-    public double currIndex;
-
-    public int transIndex;
-
-    public int foodIndex;
-
-    public int houseIndex;
-
-    public int consIndex;
+    private UUID mId;
+    private String mUserName;
+    private String mEmail;
+    private String mPassword;
+    private String mUserInfo;
+    private double mOriginalIndex;
+    private double mCurrIndex;
+    private int mTransIndex;
+    private int mFoodIndex;
+    private int mHouseIndex;
+    private int mConsIndex;
 
 
     public User() {
+        this(UUID.randomUUID());
     }
 
-    /* USER */
-    public User(String userName, String email, String password, String userInfo, double originalIndex, double currIndex,
-                int transIndex, int foodIndex, int houseIndex, int consIndex, int worstCase, int currCase) {
-        this.userName = userName;
-        this.email = email;
-        this.password = password;
-        this.userInfo = userInfo;
-        this.originalIndex = originalIndex;
-        this.currIndex = currIndex;
-        this.transIndex = transIndex;
-        this.foodIndex = foodIndex;
-        this.houseIndex = houseIndex;
-        this.consIndex = consIndex;
-
+    public User(UUID id) {
+        mId = id;
     }
 
-    public long getId() {
-        return id;
+
+    public UUID getId() {
+        return mId;
     }
 
-    public void setId(long id) {
+    /*public void setId(long id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
         return userName;
-    }
+    } */
 
     /* GETTERS & SETTERS for name */
     public String getUserName() {
-        return userName;
+        return mUserName;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.mUserName = userName;
     }
 
 
     /* GETTERS & SETTERS for email */
     public String getEmail() {
-        return email;
+        return mEmail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.mEmail = email;
     }
 
     /* GETTERS & SETTERS for password */
     public String getPassword() {
-        return password;
+        return mPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.mPassword = password;
     }
 
 
     /* GETTERS & SETTERS for userInfo */
     public String getUserInfo() {
-        return userInfo;
+        return mUserInfo;
     }
 
     public void setUserInfo(String userInfo) {
-        this.password = userInfo;
+        this.mUserInfo = userInfo;
     }
 
 
     /* GETTERS & SETTERS for originalIndex */
-    public double getOriginalIndex() { return originalIndex; }
+    public double getOriginalIndex() { return mOriginalIndex; }
 
     public void setOriginalIndex(double originalIndex) {
-        this.originalIndex = originalIndex;
+        this.mOriginalIndex = originalIndex;
     }
 
     /* GETTERS & SETTERS for currIndex */
     public double getCurrIndex() {
-        return currIndex;
+        return mCurrIndex;
     }
 
     public void setCurrIndex(double currIndex) {
-        this.currIndex = currIndex;
+        this.mCurrIndex = currIndex;
     }
 
     /* GETTERS & SETTERS for transIndex */
-    public int getTransIndex() { return transIndex; }
+    public int getTransIndex() { return mTransIndex; }
 
-    public void setTransIndex(int transIndex) { this.transIndex = transIndex; }
+    public void setTransIndex(int transIndex) { this.mTransIndex = transIndex; }
 
     /* GETTERS & SETTERS for foodIndex */
-    public int getFoodIndex() { return foodIndex; }
+    public int getFoodIndex() { return mFoodIndex; }
 
-    public void setFoodIndex(int foodIndex) { this.foodIndex = foodIndex; }
+    public void setFoodIndex(int foodIndex) { this.mFoodIndex = foodIndex; }
 
     /* GETTERS & SETTERS for houseIndex */
-    public int getHouseIndex() { return houseIndex; }
+    public int getHouseIndex() { return mHouseIndex; }
 
-    public void setHouseIndex(int houseIndex) { this.houseIndex = houseIndex; }
+    public void setHouseIndex(int houseIndex) { this.mHouseIndex = houseIndex; }
 
     /* GETTERS & SETTERS for consIndex */
-    public int getConsIndex() { return consIndex; }
+    public int getConsIndex() { return mConsIndex; }
 
-    public void setConsIndex(int consIndex) { this.consIndex = consIndex; }
+    public void setConsIndex(int consIndex) { this.mConsIndex = consIndex; }
 
     /* GETTERS & SETTERS for worstCase
     public int getWorstCase() { return worstCase; }
