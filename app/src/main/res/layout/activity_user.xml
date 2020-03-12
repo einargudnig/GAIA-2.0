@@ -14,7 +14,7 @@
         android:layout_marginTop="15dp" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/mChallenge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Challenges" />
@@ -45,6 +45,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="86dp"
+        android:autoText="true"
         android:ems="10"
         android:inputType="textPersonName" />
 
