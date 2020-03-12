@@ -15,41 +15,43 @@ import com.company.gaia.R;
 public class register_activity extends AppCompatActivity {
 
     UserBaseHelper db;
-    EditText e1, e2, e3;
-    Button b1, b2;
+    EditText eName, eEmail, ePass, eCPass;
+    Button bReg, bLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         db = new UserBaseHelper(this);
-        e1 = (EditText)findViewById(R.id.mEmail);
-        e2 = (EditText)findViewById(R.id.mPassword);
-        e3 = (EditText)findViewById(R.id.mCPassword);
-        b1 = (Button)findViewById(R.id.mRegister);
-        b2 = (Button)findViewById(R.id.mLogin);
+        eName = (EditText)findViewById(R.id.mName);
+        eEmail = (EditText)findViewById(R.id.mEmail);
+        ePass = (EditText)findViewById(R.id.mPassword);
+        eCPass = (EditText)findViewById(R.id.mCPassword);
+        bReg = (Button)findViewById(R.id.mRegister);
+        bLog = (Button)findViewById(R.id.mLogin);
 
-        b2.setOnClickListener(new View.OnClickListener() {
+        bLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(register_activity.this,login_activity.class);
                 startActivity(i);
             }
         });
-        b1.setOnClickListener(new View.OnClickListener() {
+        bReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s1 = e1.getText().toString();
-                String s2 = e2.getText().toString();
-                String s3 = e3.getText().toString();
-                if (s1.equals("") || s2.equals("") || s3.equals("")) {
+                String s1 = eName.getText().toString();
+                String s2 = eEmail.getText().toString();
+                String s3 = ePass.getText().toString();
+                String s4 = eCPass.getText().toString();
+                if (s1.equals("") || s2.equals("") || s3.equals("") || s4.equals("")) {
                     Toast.makeText(getApplicationContext(),"Fields are empty", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    if (s2.equals(s3)) {
-                        Boolean chkemail = db.chkemail(s1);
+                    if (s3.equals(s4)) {
+                        Boolean chkemail = db.chkemail(s2);
                         if (chkemail == true) {
-                            Boolean insert = db.insert(s1, s2);
+                            Boolean insert = db.insert(s1, s2, s3);
                             if (insert == true) {
                                 Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                             }

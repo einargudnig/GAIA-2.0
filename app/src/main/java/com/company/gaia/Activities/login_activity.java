@@ -1,5 +1,6 @@
 package com.company.gaia.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +13,8 @@ import com.company.gaia.Database.UserBaseHelper;
 import com.company.gaia.R;
 
 public class login_activity extends AppCompatActivity {
-    EditText e1, e2;
-    Button b1;
+    EditText eEmail, ePass;
+    Button bLog;
     UserBaseHelper db;
 
     @Override
@@ -21,17 +22,19 @@ public class login_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         db = new UserBaseHelper(this);
-        e1 = (EditText)findViewById(R.id.editText);
-        e2 = (EditText)findViewById(R.id.editText2);
-        b1 = (Button)findViewById(R.id.button);
-        b1.setOnClickListener(new View.OnClickListener() {
+        eEmail = (EditText)findViewById(R.id.mEmail);
+        ePass = (EditText)findViewById(R.id.mPass);
+        bLog = (Button)findViewById(R.id.mLog);
+        bLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = e1.getText().toString();
-                String password = e2.getText().toString();
+                String email = eEmail.getText().toString();
+                String password = ePass.getText().toString();
                 Boolean chkEmailPass = db.emailpassword(email, password);
                 if (chkEmailPass == true) {
-                    Toast.makeText(getApplicationContext(), "Successfully Logged in", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(login_activity.this, user_activity.class);
+                    startActivity(i);
+                    //Toast.makeText(getApplicationContext(), "Successfully Logged in", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong email or password", Toast.LENGTH_SHORT).show();
                 }

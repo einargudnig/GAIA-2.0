@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class UserBaseHelper extends SQLiteOpenHelper {
     private static final int VERSION = 1;
-    private static final String DATABASE_NAME = "usersBase.db";
+    private static final String DATABASE_NAME = "userBase.db";
 
     public UserBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -16,7 +16,7 @@ public class UserBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table user(email text primary key, password text)");
+        db.execSQL("Create table user(name text, email text primary key, password text)");
     }
 
     @Override
@@ -25,13 +25,14 @@ public class UserBaseHelper extends SQLiteOpenHelper {
     }
 
     //inserting in database
-    public boolean insert(String email, String password) {
+    public boolean insert(String name, String email, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
         contentValues.put("email", email);
         contentValues.put("password", password);
         long ins = db.insert("user", null, contentValues);
-        if (ins == 1) return false;
+        if (ins == -1) return false;
         else return true;
     }
 
@@ -49,6 +50,12 @@ public class UserBaseHelper extends SQLiteOpenHelper {
         Cursor c = db.rawQuery("SELECT * FROM user WHERE email=? AND password=?", new String[]{email, password});
         if (c.getCount() > 0) return true;
         else return false;
+    }
+
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM users", null);
+        return c;
     }
 
 }
