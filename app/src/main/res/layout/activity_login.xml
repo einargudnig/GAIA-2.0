@@ -7,7 +7,7 @@
     tools:context=".Activities.login_activity">
 
     <EditText
-        android:id="@+id/mEmail"
+        android:id="@+id/mUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -18,7 +18,7 @@
         android:layout_marginLeft="93dp"
         android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="textPersonName" />
 
     <EditText

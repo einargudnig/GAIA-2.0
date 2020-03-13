@@ -3,6 +3,7 @@ package com.company.gaia.Activities;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,11 @@ public class user_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        String Username = getIntent().getStringExtra("Username");
+
+        TextView tv = (TextView)findViewById(R.id.tvUsername);
+        tv.setText(Username);
+
     }
 
     public void display(View v) {
