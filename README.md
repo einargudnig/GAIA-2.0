@@ -1,26 +1,18 @@
 # GAIA-2.0
 New better version of GAIA
+Mobile Application
 
-## HallóHæ
-Þetta er langt frá því að vera komið á stað þar sem við getum gert eitthvað sniðugt fyrir GAIA.
+## Technology
 
-Staðan?
-Ég er að fylgja sýnidæmi úr android programming bókinni.
-Dæmi úr kafla 10 ca.
+Built with Java and with SQLite database in Android Studio.
 
-Þar sem planið er að klára að gera SQLite database fyrir users og ná að lesa úr database-inu í appi.
+## Design
+Righ now (16.03) the design/look of the application is minimal, We have not done anything to make it look good. Because we are focusing on getting the core features and working.
 
-Eftir það getum við skipt þessu niður.
-Einhverjir geta farið að vinna með áskoranir, geta gert annað svipað SQLite database og helper-a sem þarf. Ef að ég næ að láta user partinn virka rétt, þá er einfalt að recreate-a það fyrir áskoranir
+## Authentication
 
-Aðrir geta farið í að vinna með login/signUp. Eftir að við náum að birta user úr gagnagrunni ætti að vera frekar straight forward að bera saman value til að geta farið í login
+You can Register a user to the application on the first screen, if you have already registered you can push the login in button and log your user in. User credentials are stored in a database.
+After you log in you will be directed to the users page.
 
-Einnig er einhver sem getur farið í að vinna með útlit. Mæli með að skoða það vel samt. Það þarf að passa að XML skráin fyrir útlitið sé vel upp sett og allar 'tengingar' í values skrána séu í lagi.
-
-
-## Firebase
-Viktor ætlar líklega að skoða það að nota firebase sem gagnagrunn. Það væri geggjað ef við náum að fá það til að virka. Held að aðalmálið með það er hvernig við meðhöndlum áskoranir og áskoranir einstakra notanda.
-Mér finnst alveg í lagi að eyða tíma í það á meðan við erum hvort eð er enn að setja saman SQLite db.
-
-### Branch me bebe
-Ekki gleyma að brancha. Veit að ég er á master núna, en það er engin virkni til staðar. Færi mig á bracnh þegar við verðum komnir með grunnvirkni
+## Challenges
+We are in the progress of making entitie and services for the challenges
