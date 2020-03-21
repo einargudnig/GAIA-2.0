@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="Answer these question before you finish the register so you can receive your carbon Index" />
+
+
+    <TextView
+        android:id="@+id/transIndex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="130dp"
+        android:ems="10"
+        android:gravity="start"
+        android:inputType="textPersonName"
+        android:text="Transport Method" />
+
+
+    <Spinner
+        android:id="@+id/SpinnerTransIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp" />
+
+
+</LinearLayout>

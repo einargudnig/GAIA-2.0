@@ -22,7 +22,7 @@ public class user_activity extends AppCompatActivity {
 
     // Commented out the button that redirected to the challenge acticity..
     // I think it is better to use fragments for the three pages we will most be using(user, challenges, search)
-    //Button bChallenge;
+    // Button bChallenge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -30,6 +30,10 @@ public class register_activity extends AppCompatActivity {
         bReg = (Button)findViewById(R.id.mRegister);
         bLog = (Button)findViewById(R.id.mLogin);
 
+        /**
+         * Listener activity for the log in button
+         * starts a new activity with intent. opens the login activity.
+         */
         bLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +41,11 @@ public class register_activity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        /**
+         * Listener for the register button
+         * Makes sure no fields are empty, the name is unique and the bot passwords entered match.
+         */
         bReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,11 +58,17 @@ public class register_activity extends AppCompatActivity {
                 }
                 else {
                     if (s3.equals(s4)) {
-                        Boolean chkemail = db.chkemail(s2);
-                        if (chkemail == true) {
+                        Boolean chkName = db.chkName(s1);
+                        if (chkName == true) {
                             Boolean insert = db.insert(s1, s2, s3);
                             if (insert == true) {
-                                Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                // Here is the plan to make a new activity 'pop up' with intent.
+                                // This activity has all the questions for users to answer.
+                                Intent i = new Intent(register_activity.this, carbon_activity.class);
+                                startActivity(i);
+
+
+                                //Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else {

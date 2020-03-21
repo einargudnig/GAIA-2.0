@@ -38,6 +38,7 @@ public class login_activity extends AppCompatActivity {
                 String username = eUsername.getText().toString();
                 String password = ePass.getText().toString();
                 Boolean chkNamePass = db.ChknamePassword(username, password);
+
                 /**
                  * Check if email an password have been registered.
                  * If so, redirected to user page
@@ -52,10 +53,10 @@ public class login_activity extends AppCompatActivity {
                     startActivity(i);
 
 
-
-
-                    //Toast.makeText(getApplicationContext(), "Successfully Logged in", Toast.LENGTH_SHORT).show();
+                    // This was used in the early stages of development, good to see if log in works.
+                    // Toast.makeText(getApplicationContext(), "Successfully Logged in", Toast.LENGTH_SHORT).show();
                 } else {
+
                     /**
                      * If email and password have not been registered, we return a wrong email/password message.
                      */

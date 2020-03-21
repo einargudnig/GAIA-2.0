@@ -14,17 +14,42 @@ public class UserBaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, VERSION);
     }
 
+
+    /**
+     * Function that creates the user database.
+     * In the beginning every columns is empty
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table user(name text, email text primary key, password text)");
+        db.execSQL("Create table user(name text primary key, email text, password text, transIndex double)");
     }
 
+    /**
+     *
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     *
+     * Function that drops the user table if we upgrade the version of the user table.
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists user");
     }
 
-    //inserting in database
+    /**
+     * Function that inserts values to the user table when the register button is pressed
+     * @param name
+     * @param email
+     * @param password
+     * @return
+     *
+     * name, email and password come from the register form.
+     * Note that we do not insert any carbonIndex.
+     * When the register button is pressed a new activity invokes and there users can answer the questions
+     * after they have answered they press another confirmation button that invokes a update sql command to the database
+     * to update only the columns that had new answers.
+     */
     public boolean insert(String name, String email, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -36,15 +61,29 @@ public class UserBaseHelper extends SQLiteOpenHelper {
         else return true;
     }
 
-    //checking if email exists:
-    public Boolean chkemail(String email) {
+    /**
+     * Function that checks if the name does exist in the database
+     * @param name
+     * @return
+     *
+     * The name value is primary key in our registration app. So that it has to be unique.
+     * This function checks if the entered email exists in the database.
+     */
+    public Boolean chkName(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM user WHERE email=?", new String[]{email});
+        Cursor c = db.rawQuery("SELECT * FROM user WHERE name=?", new String[]{name});
         if (c.getCount() > 0) return false;
         else return true;
     }
 
-    //checking the email and password
+    /**
+     * Function that checks is the name and password are in the database for login
+     * @param name
+     * @param password
+     * @return
+     *
+     * This is for the login, users have to have their name and password already in the database to log in.
+     */
     public Boolean ChknamePassword(String name, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM user WHERE name=? AND password=?", new String[]{name, password});
@@ -52,10 +91,24 @@ public class UserBaseHelper extends SQLiteOpenHelper {
         else return false;
     }
 
+    /**
+     * This function is not used right now..
+     * But it can be used to show user data in the users page.
+     * @return
+     */
     public Cursor getAllData() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM users", null);
         return c;
+    }
+
+    /**
+     * Function that updates user database.
+     * Updates for 'new' values in registration process. Values connected to carbonIndex
+     *
+     */
+    public boolean update(String name, String email, String password, double transIndex) {
+        
     }
 
 }
