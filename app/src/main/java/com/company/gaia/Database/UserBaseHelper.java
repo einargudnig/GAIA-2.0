@@ -56,6 +56,7 @@ public class UserBaseHelper extends SQLiteOpenHelper {
         contentValues.put("name", name);
         contentValues.put("email", email);
         contentValues.put("password", password);
+        // contentValues.put("transIndex", transIndex);
         long ins = db.insert("user", null, contentValues);
         if (ins == -1) return false;
         else return true;
@@ -107,8 +108,11 @@ public class UserBaseHelper extends SQLiteOpenHelper {
      * Updates for 'new' values in registration process. Values connected to carbonIndex
      *
      */
-    public boolean update(String name, String email, String password, double transIndex) {
-        
+    public boolean update(double transIndex) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("transIndex", transIndex);
+        db.update("user", contentValues, )
     }
 
 }
