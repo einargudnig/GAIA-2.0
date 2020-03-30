@@ -13,8 +13,9 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="Answer these question before you finish the register so you can receive your carbon Index" />
+        android:text="@string/carbonIndex" />
+        <!-- android:inputType="textMultiLine" -->
+
 
 
     <TextView
@@ -27,8 +28,7 @@
         android:ems="10"
         android:gravity="start"
         android:inputType="textPersonName"
-        android:text="Transport Method" />
-
+        android:text="@string/transIndex" />
 
     <Spinner
         android:id="@+id/SpinnerTransIndex"
@@ -37,6 +37,16 @@
         android:layout_marginStart="93dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp" />
+
+
+    <Button
+        android:id="@+id/mConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:text="@string/confirmButton" />
 
 
 </LinearLayout>

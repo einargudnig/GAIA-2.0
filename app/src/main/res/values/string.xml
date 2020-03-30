@@ -3,10 +3,32 @@
     <string name="app_name">Gaia</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 
-    <string-array name="transIndex">
-        <item>Walk</item>
-        <item>Bicycle</item>
-        <item>Bus</item>
-        <item>Car</item>
-    </string-array>
+    <!-- Strings for authentication -->
+    <string name="registerButton">Register</string>
+    <string name="loginButton">Log in</string>
+
+    <!-- Strings for carbonIndex -->
+    <string name="carbonIndex">Answer these question before you finish the register so you can receive your carbon Index</string>
+    <string name="confirmButton">Confirm Registration</string>
+        <!-- Strings for transport index -->
+        <string name="transIndex">Transport Method</string>
+        <string-array name="transIndex">
+            <item>Walk</item>
+            <item>Bicycle</item>
+            <item>Bus</item>
+            <item>Car</item>
+        </string-array>
+
+        <!-- Strings for food index -->
+        <string name="foodIndex">Diet</string>
+
+        <!-- Strings for consumer index -->
+        <string name="consumerIndex">Consumer per month</string>
+
+        <!-- Strings for house index -->
+        <string name="houseIndex">Heating house option</string>
+
+    <!-- Strings for user Page -->
+
+    <!-- Strings for Challenge page -->
 </resources>

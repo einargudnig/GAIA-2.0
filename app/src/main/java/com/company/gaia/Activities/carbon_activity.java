@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -13,10 +14,15 @@ import com.company.gaia.R;
 
 public class carbon_activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    Button bConfirm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carbon);
+
+
+        bConfirm = (Button)findViewById(R.id.mConfirm);
 
         Spinner spinner = findViewById(R.id.SpinnerTransIndex);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -28,6 +34,12 @@ public class carbon_activity extends AppCompatActivity implements AdapterView.On
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+        bConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -42,4 +54,6 @@ public class carbon_activity extends AppCompatActivity implements AdapterView.On
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
 }
