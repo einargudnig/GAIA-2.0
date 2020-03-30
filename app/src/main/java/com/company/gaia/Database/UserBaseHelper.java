@@ -106,13 +106,15 @@ public class UserBaseHelper extends SQLiteOpenHelper {
     /**
      * Function that updates user database.
      * Updates for 'new' values in registration process. Values connected to carbonIndex
-     *
-     
+     */
+
     public boolean update(double transIndex) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("transIndex", transIndex);
-        db.update("user", contentValues, )
-    } */
+
+        db.update("user", contentValues, "name = ?", new String[] {String.valueOf(transIndex)});
+        return true;
+    }
 
 }
