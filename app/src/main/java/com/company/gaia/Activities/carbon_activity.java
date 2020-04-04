@@ -1,5 +1,6 @@
 package com.company.gaia.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -37,7 +38,8 @@ public class carbon_activity extends AppCompatActivity implements AdapterView.On
         bConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(carbon_activity.this,user_activity.class);
+                startActivity(i);
             }
         });
     }

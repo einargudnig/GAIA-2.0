@@ -14,8 +14,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:text="@string/carbonIndex" />
-        <!-- android:inputType="textMultiLine" -->
-
+    <!-- android:inputType="textMultiLine" -->
 
 
     <TextView
@@ -45,7 +44,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="180dp"
         android:layout_marginBottom="150dp"
+        android:baselineAligned="false"
         android:text="@string/confirmButton" />
 
 
