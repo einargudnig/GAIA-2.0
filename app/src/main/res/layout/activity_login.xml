@@ -4,7 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.login_activity">
+    tools:context=".Activities.login_activity"
+    android:background="@drawable/gaia_login_register">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginBottom="239dp"
+        android:fontFamily="@font/graduate"
+        android:text="Gaia"
+        android:textColor="#FFFFFF"
+        android:textSize="75sp"
+        tools:text="Gaia" />
 
     <EditText
         android:id="@+id/mUsername"
@@ -14,12 +31,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="98dp"
-        android:layout_marginLeft="98dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginLeft="99dp"
+        android:layout_marginTop="431dp"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
+        android:fontFamily="@font/graduate"
         android:hint="Username"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/mPass"
@@ -31,17 +52,24 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="99dp"
         android:layout_marginLeft="99dp"
-        android:layout_marginTop="222dp"
+        android:layout_marginTop="489dp"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
+        android:fontFamily="@font/graduate"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
     <Button
         android:id="@+id/mLog"
+        style="@android:style/Widget.Holo.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="264dp"
-        android:text="@string/loginButton" />
+        android:layout_marginBottom="45dp"
+        android:fontFamily="@font/graduate"
+        android:text="@string/loginButton"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>
