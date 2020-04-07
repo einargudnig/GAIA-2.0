@@ -2,6 +2,7 @@ package com.company.gaia.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.gaia.Database.UserBaseHelper;
 import com.company.gaia.R;
+
+// Fuck this hoe
+// import android.support.v4.app.FragmentManager;
 
 public class login_activity extends AppCompatActivity {
     EditText eUsername, ePass;
@@ -40,10 +44,11 @@ public class login_activity extends AppCompatActivity {
                 Boolean chkNamePass = db.ChknamePassword(username, password);
 
                 /**
-                 * Check if email an password have been registered.
+                 * Check if email and password have been registered.
                  * If so, redirected to user page
                  */
                 if (chkNamePass == true) {
+                    /** Einar fikt
                     Intent i = new Intent(login_activity.this, user_activity.class);
 
                     EditText a = (EditText)findViewById(R.id.mUsername);
@@ -51,6 +56,14 @@ public class login_activity extends AppCompatActivity {
 
                     i.putExtra("Username", str);
                     startActivity(i);
+                    */
+
+                    // Palla fikt
+                    Intent intent = new Intent(login_activity.this, user_activity.class);
+                    String forwardUser = eUsername.getText().toString();
+                    System.out.println("login_activity user: " + forwardUser);
+                    intent.putExtra("Username", forwardUser);
+                    startActivity(intent);
 
 
                     // This was used in the early stages of development, good to see if log in works.

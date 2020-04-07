@@ -57,7 +57,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="88dp"
         android:layout_marginLeft="88dp"
-        android:layout_marginBottom="222dp"
+        android:layout_marginBottom="197dp"
         android:text="@string/registerButton" />
 
     <Button
@@ -69,7 +69,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="95dp"
         android:layout_marginRight="95dp"
-        android:layout_marginBottom="222dp"
+        android:layout_marginBottom="196dp"
         android:text="@string/loginButton" />
 
     <EditText

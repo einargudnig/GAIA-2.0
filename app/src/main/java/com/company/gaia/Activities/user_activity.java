@@ -1,5 +1,6 @@
 package com.company.gaia.Activities;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -18,6 +19,8 @@ import com.company.gaia.Fragments.SearchFragments;
 import com.company.gaia.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.w3c.dom.Text;
+
 public class user_activity extends AppCompatActivity {
 
     // Commented out the button that redirected to the challenge acticity..
@@ -28,11 +31,38 @@ public class user_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        // setContentView(R.layout.fragment_home);
 
+        /** Einars
         // Code to get the logged in userName and display.
         String Username = getIntent().getStringExtra("Username");
         TextView tv = (TextView)findViewById(R.id.tvUsername);
         tv.setText(Username);
+        */
+
+        // Palli trying to get the logged in username displayed
+        // Get the Intent that started this activity and extract the string
+        /*
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("Username");
+        System.out.println("user_activity user: " + username);
+
+/*
+        // Capture the layout's TextView and set the string as its text
+        // This is now inside HomeFragment
+        TextView textView = findViewById(R.id.textViewUser);
+        textView.setText(username);
+*/
+
+/*
+        Bundle newBundle = new Bundle();
+        newBundle.putString("Username", username);
+        HomeFragment objUsername = new HomeFragment();
+        System.out.println("objUsername homefrag");
+
+        objUsername.setArguments(newBundle);
+        System.out.println("newBundle: " + newBundle);
+*/
 
         // For bottom navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
@@ -45,15 +75,25 @@ public class user_activity extends AppCompatActivity {
         }
     }
 
+
         private BottomNavigationView.OnNavigationItemSelectedListener navListener =
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         Fragment selectedFragment = null;
 
+                        Intent intent = getIntent();
+                        String username = intent.getStringExtra("Username");
+
                         switch (item.getItemId()) {
                             case R.id.nav_home:
+                                Bundle newBundle = new Bundle();
+                                newBundle.putString("Username", username);
+
                                 selectedFragment = new HomeFragment();
+
+                                selectedFragment.setArguments(newBundle);
+
                                 break;
                             case R.id.nav_favorites:
                                 selectedFragment = new ChallengesFragment();
