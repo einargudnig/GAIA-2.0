@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <TextView
         android:id="@+id/editText"
         android:layout_width="match_parent"
@@ -15,7 +16,6 @@
         android:ems="10"
         android:text="@string/carbonIndex" />
     <!-- android:inputType="textMultiLine" -->
-
 
     <TextView
         android:id="@+id/transIndex"

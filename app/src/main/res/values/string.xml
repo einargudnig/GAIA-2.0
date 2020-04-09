@@ -31,4 +31,8 @@
     <!-- Strings for user Page -->
 
     <!-- Strings for Challenge page -->
+
+    <!-- Strings to TEST API connection -->
+    <string name="sName">Name: </string>
+    <string name="sEmail">Email: </string>
 </resources>
