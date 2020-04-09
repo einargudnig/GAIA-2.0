@@ -1,5 +1,7 @@
 package com.company.gaia.Fragments;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,12 +10,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.company.gaia.Activities.challenge_activity;
 import com.company.gaia.R;
+
+import org.w3c.dom.Text;
 
 public class ChallengesFragment extends Fragment {
 
@@ -23,10 +29,12 @@ public class ChallengesFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_challenges, container, false);
 
-        String[] challengesItems = { "Vera Ómar í einn dag", "Prumpa minna", "Vera vegan í einn dag", "Hættu að vera sóði",
-        "Nota fjölnotapoka"};
+        String[] challengesItems = { "Be Omar for a day", "Fart less", "Be vegan for a day", "Stop being a slob",
+        "Stop using single use plastics"};
+        String[] challengesDesc = { "This is considered to be the most difficult challenge", "This is good for others", "Think of the animals",
+                "Being a slob is bad for you", "Single use plastics suck ass"};
 
-        ListView listView = view.findViewById(R.id.challengeList);
+        ListView challengeTitle = view.findViewById(R.id.challengeList);
 
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
@@ -34,9 +42,9 @@ public class ChallengesFragment extends Fragment {
                 challengesItems
         );
 
-        listView.setAdapter(listViewAdapter);
+        challengeTitle.setAdapter(listViewAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        challengeTitle.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), challenge_activity.class);
