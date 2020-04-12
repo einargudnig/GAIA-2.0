@@ -24,7 +24,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class register_activity extends AppCompatActivity {
-    /*
     UserBaseHelper db;
     EditText eName, eEmail, ePass, eCPass;
     Button bReg, bLog;
@@ -44,7 +43,7 @@ public class register_activity extends AppCompatActivity {
         /**
          * Listener activity for the log in button
          * starts a new activity with intent. opens the login activity.
-
+        **/
         bLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,9 +52,11 @@ public class register_activity extends AppCompatActivity {
             }
         });
 
+
         /**
          * Listener for the register button
          * Makes sure no fields are empty, the name is unique and the bot passwords entered match.
+         * **/
 
         bReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +93,7 @@ public class register_activity extends AppCompatActivity {
             }
         });
 
-    } */
+    }
     //ATHATH Commented it all out just for testing !
     private GaiaAPI gaiaAPI;
 
@@ -100,7 +101,7 @@ public class register_activity extends AppCompatActivity {
     //private TextView mName;
     //private TextView mEmail;
 
-
+    /**
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +117,7 @@ public class register_activity extends AppCompatActivity {
         //getUsers();
         getChallenges();
         //loginUser();
-    }
+    } **/
 
     private void getUsers() {
         Call<List<User>> call = gaiaAPI.getUsers();
@@ -147,6 +148,7 @@ public class register_activity extends AppCompatActivity {
     }
 
     /* Get Challenges from API */
+    /**
     private void getChallenges() {
         Call<List<Challenge>> call = gaiaAPI.getChallenges();
 
@@ -175,7 +177,7 @@ public class register_activity extends AppCompatActivity {
             }
         });
     }
-
+**/
 
 
     /*

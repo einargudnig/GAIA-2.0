@@ -5,8 +5,19 @@
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light">
 
+    <TextView
+        android:id="@+id/challengeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="Challenges"
+        android:textSize="30sp" />
+
     <ListView
         android:id="@+id/challengeList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@id/challengeTitle"
+        android:layout_below="@id/challengeTitle"/>
 </RelativeLayout>

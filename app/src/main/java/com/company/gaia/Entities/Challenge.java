@@ -1,47 +1,56 @@
 package com.company.gaia.Entities;
-/*
-    TODO:
-    Gera Challenge til að birta gögnin á réttan máta
-    Þarf að vera eins uppsett og gamla gagnagrunninum
-    id, title, info, count, carbonIndex
- */
-
-import java.util.UUID;
 
 public class Challenge {
-    private UUID cId;
-    private String title;
-    private String info;
-    private int count;
-    private double carbonIndex;
 
-    public Challenge(UUID cId, String title, String info, int count, double carbonIndex) {
-        super();
-        this.cId = cId;
-        this.title = title;
-        this.info = info;
-        this.count = count;
-        this.carbonIndex = carbonIndex;
+    private long id;
+    private String title;
+    public String description;
+    private long count;
+    private Double carbonIndex;
+
+    public Challenge() {
+
     }
 
+    /* GETTES & SETTERS */
 
-    public UUID getcId() {
-        return cId;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getInfo() {
-        return info;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public int getCount() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public long getCount() {
         return count;
     }
 
-    public double getCarbonIndex() {
+    public void setCount(long count) {
+        this.count = count;
+    }
+
+    public Double getCarbonIndex() {
         return carbonIndex;
+    }
+
+    public void setCarbonIndex(Double carbonIndex) {
+        this.carbonIndex = carbonIndex;
     }
 }

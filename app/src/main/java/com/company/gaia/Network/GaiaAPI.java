@@ -1,6 +1,7 @@
 package com.company.gaia.Network;
 
 import com.company.gaia.Entities.Challenge;
+import com.company.gaia.Fragments.ChallengesFragment;
 import com.company.gaia.Entities.User;
 
 import java.util.List;
