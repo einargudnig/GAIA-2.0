@@ -63,7 +63,7 @@ public class ChallengesFragment extends Fragment {
                 }
 
                 ArrayAdapter<String> challengeAdapter =
-                        new ArrayAdapter<String>(getActivity(), R.layout.challenge_view, titleList);
+                        new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, titleList);
                 challengeList.setAdapter(challengeAdapter);
             }
 
