@@ -44,7 +44,7 @@ public class register_activity extends AppCompatActivity {
 
         /**
          * Listener for the register button
-         * Makes sure no fields are empty, the name is unique and the bot passwords entered match.
+         * Makes sure no fields are empty, the name is unique and the both passwords entered match.
          */
         bReg.setOnClickListener(new View.OnClickListener() {
             @Override

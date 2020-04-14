@@ -48,23 +48,13 @@ public class login_activity extends AppCompatActivity {
                  * If so, redirected to user page
                  */
                 if (chkNamePass == true) {
-                    /** Einar fikt
-                    Intent i = new Intent(login_activity.this, user_activity.class);
-
-                    EditText a = (EditText)findViewById(R.id.mUsername);
-                    String str = a.getText().toString();
-
-                    i.putExtra("Username", str);
-                    startActivity(i);
-                    */
-
                     // Palla fikt
+                    // Byrjar user_activity og sendir skrad username med, atm bara med login glugga
                     Intent intent = new Intent(login_activity.this, user_activity.class);
                     String forwardUser = eUsername.getText().toString();
                     System.out.println("login_activity user: " + forwardUser);
                     intent.putExtra("Username", forwardUser);
                     startActivity(intent);
-
 
                     // This was used in the early stages of development, good to see if log in works.
                     // Toast.makeText(getApplicationContext(), "Successfully Logged in", Toast.LENGTH_SHORT).show();

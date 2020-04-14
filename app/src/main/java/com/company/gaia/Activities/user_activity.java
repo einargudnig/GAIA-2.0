@@ -33,36 +33,21 @@ public class user_activity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         // setContentView(R.layout.fragment_home);
 
-        /** Einars
-        // Code to get the logged in userName and display.
-        String Username = getIntent().getStringExtra("Username");
-        TextView tv = (TextView)findViewById(R.id.tvUsername);
-        tv.setText(Username);
-        */
-
         // Palli trying to get the logged in username displayed
         // Get the Intent that started this activity and extract the string
-        /*
+        // Does not register within the homefragmet.. fix later
         Intent intent = getIntent();
         String username = intent.getStringExtra("Username");
         System.out.println("user_activity user: " + username);
 
-/*
-        // Capture the layout's TextView and set the string as its text
-        // This is now inside HomeFragment
-        TextView textView = findViewById(R.id.textViewUser);
-        textView.setText(username);
-*/
-
-/*
         Bundle newBundle = new Bundle();
         newBundle.putString("Username", username);
+
         HomeFragment objUsername = new HomeFragment();
         System.out.println("objUsername homefrag");
 
         objUsername.setArguments(newBundle);
         System.out.println("newBundle: " + newBundle);
-*/
 
         // For bottom navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
@@ -75,13 +60,13 @@ public class user_activity extends AppCompatActivity {
         }
     }
 
-
         private BottomNavigationView.OnNavigationItemSelectedListener navListener =
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         Fragment selectedFragment = null;
-
+                        // Shows username on the HomeFragment when navigating
+                        // the bottom navigator..
                         Intent intent = getIntent();
                         String username = intent.getStringExtra("Username");
 
