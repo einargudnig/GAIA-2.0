@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class User {
 
-    private UUID mId;
+    //private UUID mId;
     private String mName;
     private String mEmail;
     private String mPassword;
@@ -17,19 +17,22 @@ public class User {
     private int mHouseIndex;
     private int mConsIndex;
 
-
-    public User() {
-        this(UUID.randomUUID());
+    public User(String einar, String ranie) {
     }
 
-    public User(UUID id) {
+
+    /*public User() {
+        this(UUID.randomUUID());
+    }*/
+
+   /* public User(UUID id) {
         mId = id;
     }
 
 
     public UUID getId() {
         return mId;
-    }
+    } */
 
     /*public void setId(long id) {
         this.id = id;
