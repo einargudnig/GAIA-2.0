@@ -25,19 +25,19 @@ import retrofit2.Response;
 
 public class register_activity extends AppCompatActivity implements View.OnClickListener{
 
-    //UserBaseHelper db;
+    private GaiaAPI gaiaAPI;
     private EditText editTextUName, editTextEmail, editTextPassword, editTextCPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        gaiaAPI = APIclient.getGaiaClient().create(GaiaAPI.class);
         setContentView(R.layout.activity_register);
 
         editTextUName = findViewById(R.id.editTextName);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextCPassword = findViewById(R.id.editTextCPassword);
-
 
         /**
          * Both buttons on the register screen
@@ -54,7 +54,6 @@ public class register_activity extends AppCompatActivity implements View.OnClick
          *  TODO: put in code for shared preferences.
 
     }*/
-
 
 
     /**
@@ -102,10 +101,7 @@ public class register_activity extends AppCompatActivity implements View.OnClick
          * POST request on /register
          * Can be located in GaiaAPI class
          */
-        Call<User> call = APIclient
-                .getInstance()
-                .getApi()
-                .registerUser(username, email, password);
+        Call<User> call = gaiaAPI.registerUser(username, email, password);
 
         call.enqueue(new Callback<User>() {
             @Override

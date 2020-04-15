@@ -1,9 +1,12 @@
 package com.company.gaia.Network;
 
 import com.company.gaia.Entities.Challenge;
+import com.company.gaia.Fragments.ChallengesFragment;
 import com.company.gaia.Entities.User;
+import com.company.gaia.Models.LoginRequest;
 import com.company.gaia.Models.LoginResponse;
 
+import java.util.HashMap;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -13,6 +16,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -34,12 +38,10 @@ public interface GaiaAPI {
     );
 
     // Test to Log in user
-    @FormUrlEncoded
     @POST("authenticate")
-    Call<ResponseBody> loginUser(
-            @Field("username") String username,
-            @Field("password") String password
-    );
+    @Headers("Content-Type: application/json")
+    Call<LoginResponse> loginUser(
+            @Body HashMap<String, String> Body);
 
 
     /**
@@ -48,9 +50,7 @@ public interface GaiaAPI {
      * TODO: add Query handling for search
      */
     @GET("/users")
-    Call<List<User>> getUsers(
-            @Header("Authorization") String authToken,
-            @Body User user);
+    Call<List<User>> getUsers();
 
     /**
      * GET request for all challenges

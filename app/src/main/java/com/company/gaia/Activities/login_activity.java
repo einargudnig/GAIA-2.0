@@ -2,6 +2,7 @@ package com.company.gaia.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -9,10 +10,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.gaia.Entities.User;
+import com.company.gaia.Models.LoginRequest;
 import com.company.gaia.Models.LoginResponse;
 import com.company.gaia.Network.APIclient;
+import com.company.gaia.Network.GaiaAPI;
 import com.company.gaia.R;
 import com.company.gaia.Storage.SharedPref;
+
+import java.util.HashMap;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -20,8 +25,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class login_activity extends AppCompatActivity implements View.OnClickListener {
-     private EditText editTextName;
-     private EditText editTextPassword;
+
+    private GaiaAPI gaiaAPI;
+    private EditText editTextName;
+    private EditText editTextPassword;
     /**
      *
      * @param savedInstanceState
@@ -32,6 +39,7 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        gaiaAPI = APIclient.getGaiaClient().create(GaiaAPI.class);
         setContentView(R.layout.activity_login);
         // db = new UserBaseHelper(this);
 
@@ -41,7 +49,7 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
         /**
          * Button to log in
          */
-        findViewById(R.id.mLog);
+        findViewById(R.id.mLog).setOnClickListener(this);
     }
 
     /*
@@ -53,8 +61,12 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
 
     private void userLogin() {
 
-        String username = editTextName.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
+        String username = editTextName.getText().toString();
+        String password = editTextPassword.getText().toString();
+
+        System.out.println("hALLOIAFFF");
+        System.out.println(username);
+        System.out.println(password);
 
         if (username.isEmpty()) {
             editTextName.setError("Username is required");
@@ -68,17 +80,21 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        Call<ResponseBody> call = APIclient
-                .getInstance()
-                .getApi()
-                .loginUser(username, password);
+        HashMap<String, String> body = new HashMap<>();
 
-        call.enqueue(new Callback<ResponseBody>() {
+        body.put("username", username);
+        body.put("password", password);
+
+        Call<LoginResponse> call = gaiaAPI.loginUser(body);
+
+
+
+        call.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
-                ResponseBody responseBody = response.body();
-                System.out.println(responseBody);
+                LoginResponse responseLogin = response.body();
+                System.out.println(responseLogin);
                 // if Success
                 // SharedPref.saveToken(loginResponse.authToken)
                 Intent i = new Intent(login_activity.this, user_activity.class);
@@ -90,7 +106,8 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                System.out.println(t.getMessage());
                 Toast.makeText(login_activity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

@@ -1,14 +1,12 @@
 package com.company.gaia.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.UUID;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
-    //private UUID mId;
-    private String UName;
+    private long id;
     private String email;
-    private String password;
     private String userInfo;
     private double originalIndex;
     private double currIndex;
@@ -16,42 +14,30 @@ public class User {
     private int foodIndex;
     private int houseIndex;
     private int consIndex;
+    private int worstCase;
+    private int currCase;
+    private String name;
+    private String uname;
+    private String password;
 
     public User() {
+
+
     }
 
-
-    /*public User() {
-        this(UUID.randomUUID());
-    }*/
-
-   /* public User(UUID id) {
-        mId = id;
-    }
-
-
-    public UUID getId() {
-        return mId;
-    } */
-
-    /*public void setId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return userName;
-    } */
-
     /* GETTERS & SETTERS for name */
-    public String getName() {
-        return UName;
-    }
 
-    public void setName(String Name) {
-        this.UName = UName;
-    }
+    public String getName() { return name; }
 
+    public void setName(String name) { this.name = name; }
+
+    public String getuname() { return uname; }
+
+    public void setuname(String uname) { this.uname = uname; }
 
     /* GETTERS & SETTERS for email */
     public String getEmail() {
@@ -118,15 +104,15 @@ public class User {
 
     public void setConsIndex(int consIndex) { this.consIndex = consIndex; }
 
-    /* GETTERS & SETTERS for worstCase
+    /* GETTERS & SETTERS for worstCase */
     public int getWorstCase() { return worstCase; }
 
     public void setWorstCase(int worstCase) { this.worstCase = worstCase; }
 
-    /* GETTERS & SETTERS for consIndex
+    /* GETTERS & SETTERS for consIndex */
     public int getCurrCase() { return currCase; }
 
-    public void setCurrCase(int currCase) { this.currCase = currCase; } */
+    public void setCurrCase(int currCase) { this.currCase = currCase; }
 
     /*
      * Test for signUp

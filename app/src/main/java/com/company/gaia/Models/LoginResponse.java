@@ -3,25 +3,22 @@ package com.company.gaia.Models;
 import com.company.gaia.Entities.User;
 
 public class LoginResponse {
-    private boolean error;
-    private String message;
-    private User user;
 
-    public LoginResponse(boolean error, String message, User user) {
-        this.error = error;
-        this.message = message;
-        this.user = user;
+    private String token;
+
+    public LoginResponse() {
+
     }
 
-    public boolean isError() {
-        return error;
+    public LoginResponse(String token) {
+
     }
 
-    public String getMessage() {
-        return message;
+    public String getToken() {
+        return token;
     }
 
-    public User getUser() {
-        return user;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

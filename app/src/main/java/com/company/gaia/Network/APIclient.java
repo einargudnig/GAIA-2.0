@@ -12,17 +12,16 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class APIclient {
 
-
+    private static Retrofit retrofit = null;
     private static final String GAIA_API_URL = "http://10.0.2.2:8080/";
-    private static APIclient mInstance;
-    private Retrofit retrofit;
+
 
     /**
      * Function that 'puts' everything together for the connection with the backend.
      * Get the API url and also the jackson converter.
      * @return
      */
-    private APIclient() {
+    public static Retrofit getGaiaClient() {
 
         /*
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -38,20 +37,9 @@ public class APIclient {
                         }
                 )*/
 
-        retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(GAIA_API_URL)
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
-    }
-
-    public static synchronized APIclient getInstance() {
-        if (mInstance == null) {
-            mInstance = new APIclient();
-        }
-        return mInstance;
-    }
-
-    public GaiaAPI getApi() {
-        return retrofit.create(GaiaAPI.class);
     }
 }
