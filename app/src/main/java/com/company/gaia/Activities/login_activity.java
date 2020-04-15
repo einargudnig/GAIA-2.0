@@ -51,9 +51,9 @@ public class login_activity extends AppCompatActivity {
                     // Palla fikt
                     // Byrjar user_activity og sendir skrad username med, atm bara med login glugga
                     Intent intent = new Intent(login_activity.this, user_activity.class);
-                    String forwardUser = eUsername.getText().toString();
-                    System.out.println("login_activity user: " + forwardUser);
-                    intent.putExtra("Username", forwardUser);
+                   // String forwardUser = eUsername.getText().toString();
+                   // System.out.println("login_activity user: " + forwardUser);
+                   // intent.putExtra("Username", forwardUser);
                     startActivity(intent);
 
                     // This was used in the early stages of development, good to see if log in works.
