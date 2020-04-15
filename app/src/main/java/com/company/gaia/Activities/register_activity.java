@@ -77,6 +77,11 @@ public class register_activity extends AppCompatActivity {
                                 // Here is the plan to make a new activity 'pop up' with intent.
                                 // This activity has all the questions for users to answer.
                                 Intent i = new Intent(register_activity.this, carbon_activity.class);
+                                //startActivity(i);
+
+                                String forwardUser = eName.getText().toString();
+                                System.out.println("register_activity user: " + forwardUser);
+                                i.putExtra("Username", forwardUser);
                                 startActivity(i);
 
 

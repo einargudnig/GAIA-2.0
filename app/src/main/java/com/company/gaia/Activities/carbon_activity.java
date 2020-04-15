@@ -38,7 +38,12 @@ public class carbon_activity extends AppCompatActivity implements AdapterView.On
         bConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = getIntent();
+                String username = intent.getStringExtra("Username");
+                System.out.println("carbon_activity user: " + username);
+
                 Intent i = new Intent(carbon_activity.this, user_activity.class);
+                i.putExtra("Username", username);
                 startActivity(i);
             }
         });
