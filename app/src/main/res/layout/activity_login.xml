@@ -24,7 +24,7 @@
         tools:text="Gaia" />
 
     <EditText
-        android:id="@+id/mUsername"
+        android:id="@+id/editTextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -43,7 +43,7 @@
         android:textColorHint="#FFFFFF" />
 
     <EditText
-        android:id="@+id/mPass"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
