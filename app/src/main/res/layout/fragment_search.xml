@@ -5,10 +5,31 @@
     android:background="@android:color/holo_green_light">
 
     <TextView
+        android:id="@+id/searchTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:fontFamily="@font/graduate"
+        android:text="Search for friends"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:backgroundTint="#FFFFFF"
+        android:hint="Search for users"
+        android:layout_alignParentLeft="true" />
+
+    <ListView
+        android:id="@+id/lstSearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="133dp"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>
