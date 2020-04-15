@@ -6,18 +6,18 @@ import java.util.UUID;
 public class User {
 
     //private UUID mId;
-    private String mName;
-    private String mEmail;
-    private String mPassword;
-    private String mUserInfo;
-    private double mOriginalIndex;
-    private double mCurrIndex;
-    private int mTransIndex;
-    private int mFoodIndex;
-    private int mHouseIndex;
-    private int mConsIndex;
+    private String UName;
+    private String email;
+    private String password;
+    private String userInfo;
+    private double originalIndex;
+    private double currIndex;
+    private int transIndex;
+    private int foodIndex;
+    private int houseIndex;
+    private int consIndex;
 
-    public User(String einar, String ranie) {
+    public User() {
     }
 
 
@@ -45,78 +45,78 @@ public class User {
 
     /* GETTERS & SETTERS for name */
     public String getName() {
-        return mName;
+        return UName;
     }
 
     public void setName(String Name) {
-        this.mName = Name;
+        this.UName = UName;
     }
 
 
     /* GETTERS & SETTERS for email */
     public String getEmail() {
-        return mEmail;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.mEmail = email;
+        this.email = email;
     }
 
     /* GETTERS & SETTERS for password */
     public String getPassword() {
-        return mPassword;
+        return password;
     }
 
     public void setPassword(String password) {
-        this.mPassword = password;
+        this.password = password;
     }
 
 
     /* GETTERS & SETTERS for userInfo */
     public String getUserInfo() {
-        return mUserInfo;
+        return userInfo;
     }
 
     public void setUserInfo(String userInfo) {
-        this.mUserInfo = userInfo;
+        this.userInfo = userInfo;
     }
 
 
     /* GETTERS & SETTERS for originalIndex */
-    public double getOriginalIndex() { return mOriginalIndex; }
+    public double getOriginalIndex() { return originalIndex; }
 
     public void setOriginalIndex(double originalIndex) {
-        this.mOriginalIndex = originalIndex;
+        this.originalIndex = originalIndex;
     }
 
     /* GETTERS & SETTERS for currIndex */
     public double getCurrIndex() {
-        return mCurrIndex;
+        return currIndex;
     }
 
     public void setCurrIndex(double currIndex) {
-        this.mCurrIndex = currIndex;
+        this.currIndex = currIndex;
     }
 
     /* GETTERS & SETTERS for transIndex */
-    public int getTransIndex() { return mTransIndex; }
+    public int getTransIndex() { return transIndex; }
 
-    public void setTransIndex(int transIndex) { this.mTransIndex = transIndex; }
+    public void setTransIndex(int transIndex) { this.transIndex = transIndex; }
 
     /* GETTERS & SETTERS for foodIndex */
-    public int getFoodIndex() { return mFoodIndex; }
+    public int getFoodIndex() { return foodIndex; }
 
-    public void setFoodIndex(int foodIndex) { this.mFoodIndex = foodIndex; }
+    public void setFoodIndex(int foodIndex) { this.foodIndex = foodIndex; }
 
     /* GETTERS & SETTERS for houseIndex */
-    public int getHouseIndex() { return mHouseIndex; }
+    public int getHouseIndex() { return houseIndex; }
 
-    public void setHouseIndex(int houseIndex) { this.mHouseIndex = houseIndex; }
+    public void setHouseIndex(int houseIndex) { this.houseIndex = houseIndex; }
 
     /* GETTERS & SETTERS for consIndex */
-    public int getConsIndex() { return mConsIndex; }
+    public int getConsIndex() { return consIndex; }
 
-    public void setConsIndex(int consIndex) { this.mConsIndex = consIndex; }
+    public void setConsIndex(int consIndex) { this.consIndex = consIndex; }
 
     /* GETTERS & SETTERS for worstCase
     public int getWorstCase() { return worstCase; }
