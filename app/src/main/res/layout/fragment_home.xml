@@ -1,14 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_red_light">
+    android:background="#e4f9f5">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="101dp"
+        android:layout_height="99dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ic_iconmonstr_user_circle_thin" />
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="260dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="138dp"
+        android:layout_marginLeft="138dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/graduate"
+        android:text="Umhverfisvænn notandi"
+        android:textColor="#30e3ca"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="138dp"
+        android:layout_marginLeft="138dp"
+        android:layout_marginTop="80dp"
+        android:text="Current score :"
+        android:textColor="#11999e" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginRight="129dp"
+        android:textColor="#40514e"
+        android:text="69" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="378dp"
+        android:layout_height="107dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="160dp"
+        android:textColor="#40514e"
+        android:text="Vill svo til að ég vaknaði einn morguninn og leit út um gluggann og var alveg bara hol up, wait a minute. Ég gat ekki meir og leitaði lausna um lífstíl minn, ég hafði misst alla von þangað til ég fann Gaia, og nú er ég farinn að nýta minn eigin saur í moltu." />
+
+    <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="139dp"
+        android:fontFamily="@font/graduate"
+        android:text="About :"
+        android:textColor="#11999e" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="284dp"
+        android:fontFamily="@font/graduate"
+        android:textColor="#11999e"
+        android:text="Challenges :" />
+
+    <ListView
+        android:layout_width="266dp"
+        android:layout_height="352dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp" />
 
 </RelativeLayout>
