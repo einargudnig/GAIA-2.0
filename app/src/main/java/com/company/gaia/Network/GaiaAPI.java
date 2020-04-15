@@ -5,6 +5,7 @@ import com.company.gaia.Fragments.ChallengesFragment;
 import com.company.gaia.Entities.User;
 import com.company.gaia.Models.LoginRequest;
 import com.company.gaia.Models.LoginResponse;
+import com.company.gaia.Models.RegisterResponse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,24 +25,21 @@ public interface GaiaAPI {
 
     /**
      * POST request to register new user.
-     * @param username
-     * @param email
-     * @param password
+     *
      * @return created user in postgres database on Server side.
      */
-    @FormUrlEncoded
     @POST("register")
-    Call<User> registerUser(
-            @Field("username") String username,
-            @Field("email") String email,
-            @Field("password") String password
+    @Headers("Content-Type: application/json")
+    Call<RegisterResponse> registerUser(
+            @Body HashMap<String, String> Body
     );
 
     // Test to Log in user
     @POST("authenticate")
     @Headers("Content-Type: application/json")
     Call<LoginResponse> loginUser(
-            @Body HashMap<String, String> Body);
+            @Body HashMap<String, String> Body
+    );
 
 
     /**

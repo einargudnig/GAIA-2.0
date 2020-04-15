@@ -41,7 +41,6 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         gaiaAPI = APIclient.getGaiaClient().create(GaiaAPI.class);
         setContentView(R.layout.activity_login);
-        // db = new UserBaseHelper(this);
 
         editTextName = findViewById(R.id.editTextName);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -59,14 +58,14 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
     }
      */
 
-    private void userLogin() {
 
+    /**
+     * Validation of the log in inputs.
+     * Gaia is good at security  ᕙ(⇀‸↼‶)ᕗ
+     */
+    private void userLogin() {
         String username = editTextName.getText().toString();
         String password = editTextPassword.getText().toString();
-
-        System.out.println("hALLOIAFFF");
-        System.out.println(username);
-        System.out.println(password);
 
         if (username.isEmpty()) {
             editTextName.setError("Username is required");
@@ -80,14 +79,19 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
+        /**
+         * API call
+         * POST request on /authenticate
+         * Can be located in GaiaAPI class
+         */
+
+        // Changed to use HashMap!
         HashMap<String, String> body = new HashMap<>();
 
         body.put("username", username);
         body.put("password", password);
 
         Call<LoginResponse> call = gaiaAPI.loginUser(body);
-
-
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override

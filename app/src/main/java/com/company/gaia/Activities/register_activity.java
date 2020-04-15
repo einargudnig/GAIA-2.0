@@ -13,10 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.gaia.Entities.Challenge;
 import com.company.gaia.Entities.User;
+import com.company.gaia.Models.RegisterResponse;
 import com.company.gaia.Network.APIclient;
 import com.company.gaia.Network.GaiaAPI;
 import com.company.gaia.R;
 
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -101,15 +103,23 @@ public class register_activity extends AppCompatActivity implements View.OnClick
          * POST request on /register
          * Can be located in GaiaAPI class
          */
-        Call<User> call = gaiaAPI.registerUser(username, email, password);
 
-        call.enqueue(new Callback<User>() {
+        // HashMap for the win
+        HashMap<String, String> userBody = new HashMap<>();
+
+        userBody.put("username", username);
+        userBody.put("email", email);
+        userBody.put("password", password);
+
+        Call<RegisterResponse> call = gaiaAPI.registerUser(userBody);
+
+        call.enqueue(new Callback<RegisterResponse>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                if (response.code() == 201) {
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
 
-                    User user = response.body();
-                    System.out.println(user);
+                if (response.code() == 201) {
+                    RegisterResponse registerResponse = response.body();
+                    System.out.println(registerResponse);
                     // If user is successfully registered we redirect to login screen.
                     Intent i = new Intent(register_activity.this, login_activity.class);
                     startActivity(i);
@@ -120,10 +130,9 @@ public class register_activity extends AppCompatActivity implements View.OnClick
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
-
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                System.out.println(t.getMessage());
                 Toast.makeText(register_activity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-                ;
             }
         });
     }
