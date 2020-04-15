@@ -11,4 +11,13 @@
         android:textSize="30sp"
         android:layout_centerInParent="true"/>
 
+    <TextView
+        android:id="@+id/textViewUser"
+        android:layout_width="136dp"
+        android:layout_height="69dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:text="" />
+
 </RelativeLayout>

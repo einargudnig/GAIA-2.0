@@ -23,8 +23,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/tvUsername"
-            android:layout_width="205dp"
+            android:id="@+id/textViewUser"
+            android:layout_width="157dp"
             android:layout_height="51dp"
             android:layout_marginStart="118dp"
             android:layout_marginLeft="118dp"
