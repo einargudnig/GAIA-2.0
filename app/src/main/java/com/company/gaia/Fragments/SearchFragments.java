@@ -73,6 +73,9 @@ public class SearchFragments extends Fragment {
                                 TextView text2 = view.findViewById(R.id.text2);
 
                                 text1.setText(users.get(position).getuname());
+                                double d = users.get(position).getCurrIndex();
+                                String str = d+"";
+                                text2.setText(str);
                                 return view;
                             }
                         };
