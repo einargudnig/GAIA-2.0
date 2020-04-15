@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment {
                             }
                         };
 
-                textViewUser.setAdapter(userAdapter);
+               // textViewUser.setAdapter(userAdapter);
 
             }
 

@@ -24,6 +24,7 @@ import com.company.gaia.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -82,6 +83,7 @@ public class SearchFragments extends Fragment {
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 System.out.println(t.getMessage());
+                System.out.println("fail i search frag");
             }
         });
     }
