@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <TwoLineListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/listPreferredItemHeight"
@@ -10,20 +11,39 @@
     android:paddingRight="?attr/listPreferredItemPaddingRight"
     android:paddingLeft="?attr/listPreferredItemPaddingLeft">
 
-    <TextView android:id="@id/text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorRed"
-        android:layout_marginTop="8dp"
-        android:textAppearance="?attr/textAppearanceListItem" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_tree" />
 
-    <TextView android:id="@id/text2"
+    <TextView
+        android:id="@id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="7dp"
+        android:textSize="22dp"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:textColor="#11999e" />
+
+    <TextView
+        android:id="@id/text2"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/text1"
-        android:layout_alignStart="@id/text1"
+        android:layout_alignStart="@+id/text1"
+        android:layout_alignLeft="@+id/text1"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
+        android:textSize="11dp"
         android:textAppearance="?attr/textAppearanceListItemSecondary"
-        android:layout_alignLeft="@+id/text1" />
+        android:textColor="#40514e" />
 
 </TwoLineListItem>

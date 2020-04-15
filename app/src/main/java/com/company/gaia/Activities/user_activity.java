@@ -30,9 +30,9 @@ public class user_activity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         // Code to get the logged in userName and display.
-        String Username = getIntent().getStringExtra("Username");
-        TextView tv = (TextView)findViewById(R.id.tvUsername);
-        tv.setText(Username);
+        //String Username = getIntent().getStringExtra("Username");
+        //TextView tv = (TextView)findViewById(R.id.tvUsername);
+        //tv.setText(Username);
 
         // For bottom navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
