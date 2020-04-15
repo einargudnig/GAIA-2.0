@@ -37,9 +37,9 @@ public class SearchFragments extends Fragment {
     private ListView lstSearch;
     private EditText txtSearch;
     public ArrayList<String> userList = new ArrayList<String>();
-    public ArrayList<Double> scoreList = new ArrayList<Double>();
     public GaiaAPI gaiaAPI;
     private ArrayAdapter<String> userAdapter;
+    private ArrayList<Double> scoreList = new ArrayList<Double>();
 
     @Nullable
     @Override
@@ -67,32 +67,30 @@ public class SearchFragments extends Fragment {
 
                 for (User user : users) {
                     userList.add(user.getuname());
-                    scoreList.add(user.getCurrIndex());
+                    scoreList.add(user.getOriginalIndex());
+                    System.out.println(scoreList);
                 }
 
                 userAdapter = new ArrayAdapter<String>(getActivity(), R.layout.custom_simple_list_item_2, R.id.text1, userList){
                     @Override
                     public View getView(int position, View convertView, ViewGroup parent) {
                         View view = super.getView(position, convertView, parent);
-
-                        User currUser = users.get(position);
                         TextView text1 = view.findViewById(R.id.text1);
-
                         TextView text2 = view.findViewById(R.id.text2);
-                        Double d = currUser.getOriginalIndex();
+                        double d = users.get(position).getOriginalIndex();
                         String str = d + "";
+                        text2.setText(str);
 
                         String search = txtSearch.getText().toString();
                         for(int i = 0; i < userList.size(); i++) {
-                            if(search == userList.get(i)) {
-                                text1.setText(users.get(position).getuname());
-                                text2.setText(scoreList.get(position).toString());
+                            if(search.equals(userList.get(i))) {
+                                text1.setText(userList.get(i));
+                                text2.setText(scoreList.get(i).toString());
                             }
                         }
                         return view;
                     }
                 };
-
                 lstSearch.setAdapter(userAdapter);
 
                 txtSearch.addTextChangedListener(new TextWatcher() {
@@ -103,12 +101,12 @@ public class SearchFragments extends Fragment {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        userAdapter.getFilter().filter(s);
+
                     }
 
                     @Override
                     public void afterTextChanged(Editable s) {
-
+                        userAdapter.getFilter().filter(s);
                     }
                 });
 
