@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -22,6 +23,7 @@ import androidx.fragment.app.Fragment;
 
 import com.company.gaia.Activities.challenge_activity;
 import com.company.gaia.Entities.Challenge;
+import com.company.gaia.Entities.User;
 import com.company.gaia.Network.APIclient;
 import com.company.gaia.Network.GaiaAPI;
 import com.company.gaia.R;
