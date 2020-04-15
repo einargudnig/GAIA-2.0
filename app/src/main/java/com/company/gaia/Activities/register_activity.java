@@ -41,9 +41,7 @@ public class register_activity extends AppCompatActivity implements View.OnClick
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextCPassword = findViewById(R.id.editTextCPassword);
 
-        /**
-         * Both buttons on the register screen
-         */
+         /* Both buttons on the register screen */
         findViewById(R.id.mLogin).setOnClickListener(this);
         findViewById(R.id.mRegister).setOnClickListener(this);
     }
@@ -122,6 +120,12 @@ public class register_activity extends AppCompatActivity implements View.OnClick
                     System.out.println(registerResponse);
                     // If user is successfully registered we redirect to login screen.
                     Intent i = new Intent(register_activity.this, login_activity.class);
+
+                    String forwardUser = username;
+                    System.out.println("register_activity user: " + forwardUser);
+                    i.putExtra("Username", forwardUser);
+                    startActivity(i);
+
                     startActivity(i);
 
                 } else if (response.code() == 422) {

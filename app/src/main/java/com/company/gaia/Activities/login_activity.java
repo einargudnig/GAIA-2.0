@@ -2,6 +2,7 @@ package com.company.gaia.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.company.gaia.Database.UserBaseHelper;
 import com.company.gaia.Entities.User;
 import com.company.gaia.Models.LoginRequest;
 import com.company.gaia.Models.LoginResponse;
@@ -24,11 +26,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// Fuck this hoe
+// import android.support.v4.app.FragmentManager;
+
 public class login_activity extends AppCompatActivity implements View.OnClickListener {
 
     private GaiaAPI gaiaAPI;
     private EditText editTextName;
     private EditText editTextPassword;
+
+    EditText eUsername, ePass;
+    UserBaseHelper db;
     /**
      *
      * @param savedInstanceState
@@ -102,14 +110,19 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
                 // if Success
                 // SharedPref.saveToken(loginResponse.authToken)
                 Intent i = new Intent(login_activity.this, user_activity.class);
+
+                String forwardUser = username;
+                System.out.println("login_activity user: " + forwardUser);
+                i.putExtra("Username", forwardUser);
                 startActivity(i);
+
 
 
                 //Toast.makeText(login_activity.this, (CharSequence) responseBody, Toast.LENGTH_LONG).show();
 
             }
 
-            @Override
+
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 System.out.println(t.getMessage());
                 Toast.makeText(login_activity.this, t.getMessage(), Toast.LENGTH_LONG).show();

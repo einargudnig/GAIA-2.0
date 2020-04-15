@@ -3,6 +3,8 @@ package com.company.gaia.Fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,9 @@ import com.company.gaia.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Handler;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,6 +38,8 @@ public class SearchFragments extends Fragment {
     private EditText txtSearch;
     public ArrayList<String> userList = new ArrayList<String>();
     public GaiaAPI gaiaAPI;
+    private ArrayAdapter<String> userAdapter;
+    private ArrayList<Double> scoreList = new ArrayList<Double>();
 
     @Nullable
     @Override
@@ -58,25 +64,52 @@ public class SearchFragments extends Fragment {
                 }
 
                 List<User> users = response.body();
-                System.out.println(users);
 
                 for (User user : users) {
                     userList.add(user.getuname());
+                    scoreList.add(user.getOriginalIndex());
+                    System.out.println(scoreList);
                 }
 
-                ArrayAdapter<String> userAdapter =
-                        new ArrayAdapter<String>(getActivity(), R.layout.custom_simple_list_item_2, R.id.text1, userList){
-                            @Override
-                            public View getView(int position, View convertView, ViewGroup parent) {
-                                View view = super.getView(position, convertView, parent);
-                                TextView text1 = view.findViewById(R.id.text1);
-                                TextView text2 = view.findViewById(R.id.text2);
+                userAdapter = new ArrayAdapter<String>(getActivity(), R.layout.custom_simple_list_item_2, R.id.text1, userList){
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView text1 = view.findViewById(R.id.text1);
+                        TextView text2 = view.findViewById(R.id.text2);
+                        double d = users.get(position).getOriginalIndex();
+                        String str = d + "";
+                        text2.setText(str);
 
-                                text1.setText(users.get(position).getuname());
-                                return view;
+                        String search = txtSearch.getText().toString();
+                        for(int i = 0; i < userList.size(); i++) {
+                            if(search.equals(userList.get(i))) {
+                                text1.setText(userList.get(i));
+                                text2.setText(scoreList.get(i).toString());
                             }
-                        };
+                        }
+                        return view;
+                    }
+                };
                 lstSearch.setAdapter(userAdapter);
+
+                txtSearch.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        userAdapter.getFilter().filter(s);
+                    }
+                });
+
             }
 
             @Override
@@ -86,3 +119,28 @@ public class SearchFragments extends Fragment {
         });
     }
 }
+/**
+ userAdapter = new ArrayAdapter<User>(getActivity(), R.layout.custom_simple_list_item_2, R.id.text1, users){
+@Override
+public View getView(int position, View convertView, ViewGroup parent) {
+View view = super.getView(position, convertView, parent);
+
+TextView text1 = view.findViewById(R.id.text1);
+TextView text2 = view.findViewById(R.id.text2);
+
+String search = txtSearch.getText().toString();
+for(int i = 0; i < userList.size(); i++) {
+if(search == userList.get(i)) {
+text1.setText(users.get(position).getuname());
+double d = users.get(position).getCurrIndex();
+String str = d + "";
+text2.setText(str);
+
+
+}
+}
+
+return view;
+}
+};
+ **/
