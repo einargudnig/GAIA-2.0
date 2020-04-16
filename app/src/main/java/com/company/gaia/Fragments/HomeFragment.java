@@ -1,10 +1,12 @@
 package com.company.gaia.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.company.gaia.Activities.login_activity;
+import com.company.gaia.Activities.register_activity;
 import com.company.gaia.R;
 
 import com.company.gaia.Activities.user_activity;
@@ -48,10 +52,23 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         gaiaAPI = APIclient.getGaiaClient().create(GaiaAPI.class);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
         loggedUser = view.findViewById(R.id.text_userName);
         loggedBio = view.findViewById(R.id.text_userBio);
         loggedScore = view.findViewById(R.id.text_userScore);
+
+        Button button = view.findViewById(R.id.button_logout);
+
         getLoggedIn();
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), register_activity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
 
