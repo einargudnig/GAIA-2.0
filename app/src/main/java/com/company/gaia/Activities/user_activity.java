@@ -33,6 +33,7 @@ public class user_activity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         // setContentView(R.layout.fragment_home);
 
+
         // Palli trying to get the logged in username displayed
         // Get the Intent that started this activity and extract the string
         // Does not register within the homefragmet.. fix later
