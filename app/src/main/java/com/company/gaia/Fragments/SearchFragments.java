@@ -52,7 +52,7 @@ public class SearchFragments extends Fragment {
         return view;
     }
 
-    private void getUsers() {
+    public void getUsers() {
         Call<List<User>> call = gaiaAPI.getUsers();
 
         call.enqueue(new Callback<List<User>>() {
@@ -67,7 +67,7 @@ public class SearchFragments extends Fragment {
 
                 for (User user : users) {
                     userList.add(user.getuname());
-                    scoreList.add(user.getOriginalIndex());
+                    scoreList.add(user.getCurrIndex());
                     System.out.println(scoreList);
                 }
 
@@ -77,7 +77,7 @@ public class SearchFragments extends Fragment {
                         View view = super.getView(position, convertView, parent);
                         TextView text1 = view.findViewById(R.id.text1);
                         TextView text2 = view.findViewById(R.id.text2);
-                        double d = users.get(position).getOriginalIndex();
+                        double d = users.get(position).getCurrIndex();
                         String str = d + "";
                         text2.setText(str);
 

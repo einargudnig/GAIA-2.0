@@ -108,6 +108,7 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
                 // if Success
                 // SharedPref.saveToken(loginResponse.authToken)
                 Intent i = new Intent(login_activity.this, user_activity.class);
+                i.putExtra("Username", username);
                 startActivity(i);
 
 
