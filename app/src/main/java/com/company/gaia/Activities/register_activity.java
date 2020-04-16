@@ -126,8 +126,6 @@ public class register_activity extends AppCompatActivity implements View.OnClick
                     i.putExtra("Username", forwardUser);
                     startActivity(i);
 
-                    startActivity(i);
-
                 } else if (response.code() == 422) {
                     Toast.makeText(register_activity.this, "User already exists", Toast.LENGTH_LONG).show();
                 }
