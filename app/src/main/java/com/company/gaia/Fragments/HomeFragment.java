@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,10 +31,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
-
+/*
     public GaiaAPI gaiaAPI;
-    // private ListView textViewUser;
-    public ArrayList<String> userList = new ArrayList<String>();
+    private ListView usernameTxt;
+    public ArrayAdapter<String> userAdapter;
 
 
     @Nullable
@@ -41,26 +42,56 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         gaiaAPI = APIclient.getGaiaClient().create(GaiaAPI.class);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        TextView textViewUser = view.findViewById(R.id.textViewUser);
-        System.out.println("Sup ert inní HomeFragment");
-        // getUsername();
+        usernameTxt = view.findViewById(R.id.usernameTxt);
+        getLoggedIn();
 
-        // tv.setText("uti getArgu");
 
-        System.out.println("inside homefragment");
-        System.out.println("getArguments: " + this.getArguments());
-        if (getArguments() != null) {
-            System.out.println("getArguments ekki null");
-            String name = getArguments().getString("Username");
-            System.out.println("homefragment name: " + name);
-
-            textViewUser.setText("Welcome " + name);
 
         }
 
 
         return view;
 
+    }
+
+    private void getLoggedIn() {
+        Call<User> call = gaiaAPI.getLoggedIn();
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+
+                if (!response.isSuccessful()) {
+                    System.out.println(response.code());
+                }
+
+                User user = response.body();
+
+                user.getName();
+                user.getEmail();
+                System.out.println("*_______________*");
+                System.out.println(user.getName());
+                System.out.println(user.getEmail());
+                System.out.println("*------------------*");
+            }
+
+            ArrayAdapter<String> userAdapter =
+                new ArrayAdapter<String>(getActivity(),R.id.custom_simple_list_item_2, R.id.text1) {
+                @Override
+                public View getView(View convertView ViewGroup parent) {
+                View view = super.getView(convertView, parent);
+                TextView text1 = view.findViewById(R.id.text1);
+
+                text1.setText(user.);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                System.out.println(t.getMessage());
+            }
+        });*/
     }
 /*
     private void getUsername() {
@@ -105,7 +136,7 @@ public class HomeFragment extends Fragment {
                 System.out.println(t.getMessage());
             }
         });
-
- */
-    //}
+    }
 }
+ */
+
