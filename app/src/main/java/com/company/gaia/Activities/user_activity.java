@@ -37,7 +37,7 @@ public class user_activity extends AppCompatActivity {
         // Palli trying to get the logged in username displayed
         // Get the Intent that started this activity and extract the string
         // Does not register within the homefragmet.. fix later
-
+/*
         Intent intent = getIntent();
         String username = intent.getStringExtra("Username");
         System.out.println("user_activity user: " + username);
@@ -50,7 +50,7 @@ public class user_activity extends AppCompatActivity {
 
         objUsername.setArguments(newBundle);
         System.out.println("newBundle: " + newBundle);
-
+*/
         // For bottom navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);

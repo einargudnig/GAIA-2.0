@@ -35,6 +35,9 @@ public class HomeFragment extends Fragment {
     public GaiaAPI gaiaAPI;
     private ListView usernameTxt;
     public ArrayAdapter<String> userAdapter;
+    private TextView loggedUser;
+    private TextView loggedBio;
+    private TextView loggedScore;
 
     public HomeFragment() {
 
@@ -45,6 +48,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         gaiaAPI = APIclient.getGaiaClient().create(GaiaAPI.class);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        loggedUser = view.findViewById(R.id.text_userName);
+        loggedBio = view.findViewById(R.id.text_userBio);
+        loggedScore = view.findViewById(R.id.text_userScore);
         getLoggedIn();
 
         return view;
@@ -52,24 +58,41 @@ public class HomeFragment extends Fragment {
         }
 
     private void getLoggedIn() {
-        Call<User> call = gaiaAPI.getLoggedIn();
+        if (getArguments() != null) {
+            String name = getArguments().getString("Username");
 
-        call.enqueue(new Callback<User>() {
+            loggedUser.setText(name);
+        }
+
+        Call<List<User>> call = gaiaAPI.getUsers();
+
+        call.enqueue(new Callback<List<User>>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
 
                 if (!response.isSuccessful()) {
-                    System.out.println(response.code());
+                    System.out.println("No bueno!");
                 }
 
-                User user = response.body();
+                List<User> users = response.body();
+                User myUser = new User();
 
+                for (User user : users) {
+                    if(user.getuname().equals(loggedUser.getText())){
+                        myUser = user;
+                    }
+                }
+
+                loggedUser.setText("Welcome " + myUser.getuname());
+                loggedBio.setText(myUser.getUserInfo());
+                Double d = myUser.getCurrIndex();
+                String str = d + "";
+                loggedScore.setText(str);
 
             }
 
-
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<List<User>> call, Throwable t) {
                 System.out.println(t.getMessage());
             }
         });
