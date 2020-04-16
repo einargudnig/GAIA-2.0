@@ -13,7 +13,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 public class APIclient {
 
     private static Retrofit retrofit = null;
-    private static final String GAIA_API_URL = "https://gaiabakendi.herokuapp.com";
+
+    private static final String GAIA_API_URL = "https://gaiabakendi.herokuapp.com/";
 
 
     /**

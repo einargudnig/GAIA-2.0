@@ -25,7 +25,6 @@ public interface GaiaAPI {
 
     /**
      * POST request to register new user.
-     *
      * @return created user in postgres database on Server side.
      */
     @POST("register")
@@ -33,6 +32,8 @@ public interface GaiaAPI {
     Call<RegisterResponse> registerUser(
             @Body HashMap<String, String> Body
     );
+
+
 
     // Test to Log in user
     @POST("authenticate")
@@ -57,6 +58,12 @@ public interface GaiaAPI {
      */
     @GET("/challenges")
     Call<List<Challenge>> getChallenges();
+
+    /**
+     * Get request for the logged in user
+     */
+    @GET("/loggedin")
+    Call<User> getLoggedIn();
 
 
 

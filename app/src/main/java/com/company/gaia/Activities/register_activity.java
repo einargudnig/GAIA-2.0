@@ -66,6 +66,12 @@ public class register_activity extends AppCompatActivity implements View.OnClick
         String password = editTextPassword.getText().toString().trim();
         String cPassword = editTextCPassword.getText().toString().trim();
 
+        System.out.println("*-----------------*");
+        System.out.println(username);
+        System.out.println(email);
+        System.out.println(password);
+        System.out.println("*-----------------*");
+
         if (username.isEmpty()) {
             editTextUName.setError("Name required");
             editTextUName.requestFocus();
@@ -111,14 +117,21 @@ public class register_activity extends AppCompatActivity implements View.OnClick
 
         Call<RegisterResponse> call = gaiaAPI.registerUser(userBody);
 
+        System.out.println("**--------------**");
+        System.out.println(userBody);
+
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-
+                System.out.println("HALLORESPONSE");
+                System.out.println(response);
                 if (response.code() == 201) {
+
                     RegisterResponse registerResponse = response.body();
                     System.out.println(registerResponse);
+                    Toast.makeText(register_activity.this, registerResponse.getMsg(), Toast.LENGTH_LONG).show();
                     // If user is successfully registered we redirect to login screen.
+                    
                     Intent i = new Intent(register_activity.this, login_activity.class);
 
                     String forwardUser = username;
@@ -128,7 +141,10 @@ public class register_activity extends AppCompatActivity implements View.OnClick
 
                 } else if (response.code() == 422) {
                     Toast.makeText(register_activity.this, "User already exists", Toast.LENGTH_LONG).show();
+                } else {
+                    System.out.println(response.code());
                 }
+
             }
 
             @Override

@@ -17,10 +17,12 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.company.gaia.Activities.challenge_activity;
 import com.company.gaia.Entities.Challenge;
@@ -46,6 +48,9 @@ public class ChallengesFragment extends Fragment {
     public  ArrayList<String> titleList = new ArrayList<String>();
     public  ArrayList<String> descList = new ArrayList<String>();
 
+    public ChallengesFragment() {
+
+    }
 
     @Nullable
     @Override
@@ -99,8 +104,12 @@ public class ChallengesFragment extends Fragment {
                         builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //TODO
-                                //Assign challenge here tenging við db
+                                //TODO Add chall function or fragmentManager
+                              //  Bundle bundle = new Bundle()
+                             //     bundle.putString("key", titleList.get(position));
+
+
+                                Toast.makeText(getActivity(), "Challenge added", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                             }
                         });
@@ -122,5 +131,4 @@ public class ChallengesFragment extends Fragment {
             }
         });
     }
-
 }

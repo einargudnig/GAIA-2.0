@@ -1,16 +1,21 @@
 package com.company.gaia.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.company.gaia.Activities.login_activity;
+import com.company.gaia.Activities.register_activity;
 import com.company.gaia.R;
 
 import com.company.gaia.Activities.user_activity;
@@ -32,71 +37,74 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     public GaiaAPI gaiaAPI;
-    // private ListView textViewUser;
-    public ArrayList<String> userList = new ArrayList<String>();
+    private ListView usernameTxt;
+    public ArrayAdapter<String> userAdapter;
+    private TextView loggedUser;
+    private TextView loggedBio;
+    private TextView loggedScore;
 
+    public HomeFragment() {
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         gaiaAPI = APIclient.getGaiaClient().create(GaiaAPI.class);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        TextView textViewUser = view.findViewById(R.id.textViewUser);
-        System.out.println("Sup ert inní HomeFragment");
-        // getUsername();
 
-        // tv.setText("uti getArgu");
+        loggedUser = view.findViewById(R.id.text_userName);
+        loggedBio = view.findViewById(R.id.text_userBio);
+        loggedScore = view.findViewById(R.id.text_userScore);
 
-        System.out.println("inside homefragment");
-        System.out.println("getArguments: " + this.getArguments());
-        if (getArguments() != null) {
-            System.out.println("getArguments ekki null");
-            String name = getArguments().getString("Username");
-            System.out.println("homefragment name: " + name);
+        Button button = view.findViewById(R.id.button_logout);
 
-            textViewUser.setText("Welcome " + name);
+        getLoggedIn();
 
-        }
+        button.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), register_activity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
 
-    }
-/*
-    private void getUsername() {
-        System.out.println("ert inní getUsername");
+        }
+
+    private void getLoggedIn() {
+        if (getArguments() != null) {
+            String name = getArguments().getString("Username");
+
+            loggedUser.setText(name);
+        }
+
         Call<List<User>> call = gaiaAPI.getUsers();
-        System.out.println("Herna er callið: " + call);
 
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                System.out.println("inside onResponse in HomeFragment");
 
                 if (!response.isSuccessful()) {
-                    System.out.println("no response found my guy");
+                    System.out.println("No bueno!");
                 }
 
                 List<User> users = response.body();
+                User myUser = new User();
 
                 for (User user : users) {
-                    System.out.println(user.getuname());
-                    userList.add(user.getuname());
+                    if(user.getuname().equals(loggedUser.getText())){
+                        myUser = user;
+                    }
                 }
 
-                ArrayAdapter<String> userAdapter =
-                        new ArrayAdapter<String>(getActivity(), R.layout.activity_user, R.id.textViewUser, userList){
-                            @Override
-                            public View getView(int position, View convertView, ViewGroup parent) {
-                                View view = super.getView(position, convertView, parent);
-                                TextView textViewUser = view.findViewById(R.id.textViewUser);
-
-                                textViewUser.setText(users.get(position).getName());
-                                return view;
-                            }
-                        };
-
-               textViewUser.setAdapter(userAdapter);
+                loggedUser.setText("Welcome " + myUser.getuname());
+                loggedBio.setText(myUser.getUserInfo());
+                Double d = myUser.getCurrIndex();
+                String str = d + "";
+                loggedScore.setText(str);
 
             }
 
@@ -105,7 +113,6 @@ public class HomeFragment extends Fragment {
                 System.out.println(t.getMessage());
             }
         });
-
- */
-    //}
+    }
 }
+

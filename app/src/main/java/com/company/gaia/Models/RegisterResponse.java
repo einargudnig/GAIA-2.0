@@ -8,12 +8,10 @@ public class RegisterResponse {
 
     private boolean err;
     private String msg;
-    private List<User> users;
 
-    public RegisterResponse(boolean err, String msg, List<User> users) {
+    public RegisterResponse(boolean err, String msg) {
         this.err = err;
         this.msg = msg;
-        this.users = users;
     }
 
     public boolean isErr() {
@@ -24,7 +22,4 @@ public class RegisterResponse {
         return msg;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
 }
