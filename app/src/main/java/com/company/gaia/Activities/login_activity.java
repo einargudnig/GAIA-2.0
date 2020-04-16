@@ -35,8 +35,6 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
     private EditText editTextName;
     private EditText editTextPassword;
 
-    EditText eUsername, ePass;
-    UserBaseHelper db;
     /**
      *
      * @param savedInstanceState
@@ -110,10 +108,6 @@ public class login_activity extends AppCompatActivity implements View.OnClickLis
                 // if Success
                 // SharedPref.saveToken(loginResponse.authToken)
                 Intent i = new Intent(login_activity.this, user_activity.class);
-
-                String forwardUser = username;
-                System.out.println("login_activity user: " + forwardUser);
-                i.putExtra("Username", forwardUser);
                 startActivity(i);
 
 
