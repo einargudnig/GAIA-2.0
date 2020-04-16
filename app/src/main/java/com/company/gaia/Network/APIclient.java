@@ -14,6 +14,8 @@ public class APIclient {
 
     private static Retrofit retrofit = null;
     private static final String GAIA_API_URL = "http://gaiabakendi.herokuapp.com/";
+    // http://gaiabakendi.herokuapp.com/
+    // http://10.0.2.2:8080/
 
     /**
      * Function that 'puts' everything together for the connection with the backend.
